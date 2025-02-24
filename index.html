@@ -92,5 +92,16 @@
             <a href="https://eu.adbox-v5.ipv64.net" target="_blank">Link 3</a>
         </div>
     </div>
+    <script>
+        function showDescription(section) {
+            document.getElementById("description").innerText = `You selected: ${section}`;
+            
+            if (section === "proxies") {
+                document.getElementById("proxy-links").style.display = "flex";
+            } else {
+                document.getElementById("proxy-links").style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
