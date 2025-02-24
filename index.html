@@ -31,6 +31,20 @@
             margin-top: 30px;
             font-size: 22px;
         }
+        .link-list {
+            text-align: left;
+            margin: 20px auto;
+            width: 60%;
+        }
+        .link-list a {
+            display: block;
+            color: #B8C4CA;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        .link-list a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -42,6 +56,33 @@
     </div>
     <div id="description" class="description">Click 0 to go to Google and click 1 to go to Schoology</div>
     
+    <div id="proxy-links" class="link-list" style="display: none;">
+        <h2>Proxy Links</h2>
+        <a href="https://smoresxo.shop.atomybomb.com/" target="_blank">smoresxo.shop.atomybomb.com</a>
+        <a href="https://lwsd1.spfv.ro/" target="_blank">lwsd1.spfv.ro</a>
+        <a href="https://lwsd2.spfv.ro/" target="_blank">lwsd2.spfv.ro</a>
+        <a href="https://lwsd3.spfv.ro/" target="_blank">lwsd3.spfv.ro</a>
+        <a href="https://lwsd4.spfv.ro/" target="_blank">lwsd4.spfv.ro</a>
+        <a href="https://6060-sigmabread-nightproxy-onwxkf6omu3ws-us117.iot64.de/" target="_blank">6060-sigmabread-nightproxy</a>
+        <a href="https://rex3.cassain.com.ar/" target="_blank">rex3.cassain.com.ar</a>
+        <a href="https://rex2.cassain.com.ar/" target="_blank">rex2.cassain.com.ar</a>
+        <a href="https://rex4.cassain.com.ar/" target="_blank">rex4.cassain.com.ar</a>
+        <a href="https://rex5.cassain.com.ar/" target="_blank">rex5.cassain.com.ar</a>
+        <a href="https://finance.kowaileet.com/" target="_blank">finance.kowaileet.com</a>
+        <a href="https://studiolearnmusic.estudioferrer.com/" target="_blank">studiolearnmusic.estudioferrer.com</a>
+        <a href="https://nightnet.divertednetworks.net/" target="_blank">nightnet.divertednetworks.net</a>
+        <a href="https://university.divertednetworks.net/" target="_blank">university.divertednetworks.net</a>
+        <a href="https://orbitmc.lol/" target="_blank">orbitmc.lol</a>
+        <a href="https://join.puddlehunters.net/" target="_blank">join.puddlehunters.net</a>
+        <a href="https://read.anjumanallana.in/" target="_blank">read.anjumanallana.in</a>
+        <a href="https://edu.ostrovsky.sk/" target="_blank">edu.ostrovsky.sk</a>
+        <a href="https://genesis-is-the-goat.edgeindustries.co.uk/" target="_blank">genesis-is-the-goat</a>
+        <a href="https://discoveryexplore.puffballofevil.com" target="_blank">discoveryexplore.puffballofevil.com</a>
+        <a href="https://chromebooks.laptopy.nl" target="_blank">chromebooks.laptopy.nl</a>
+        <a href="https://crocodile.acumor.co" target="_blank">crocodile.acumor.co</a>
+        <a href="https://sigma.thecarrollsite.com/" target="_blank">sigma.thecarrollsite.com</a>
+    </div>
+    
     <script>
         const descriptions = {
             proxies: "Proxies help you browse the internet safely and access restricted content.",
@@ -51,6 +92,7 @@
         
         function showDescription(category) {
             document.getElementById('description').innerText = descriptions[category];
+            document.getElementById('proxy-links').style.display = category === 'proxies' ? 'block' : 'none';
         }
 
         document.addEventListener('keydown', function(event) {
