@@ -40,7 +40,7 @@
         <button onclick="showDescription('games')">Games</button>
         <button onclick="showDescription('movies')">Movies</button>
     </div>
-    <div id="description" class="description">Click 0 to go to Google and click 1 to go to about:blank</div>
+    <div id="description" class="description">Click 0 to go to Google and click 1 to go to Schoology</div>
     
     <script>
         const descriptions = {
@@ -57,7 +57,7 @@
             if (event.key === '0') {
                 window.location.href = 'https://www.google.com';
             } else if (event.key === '1') {
-                window.open('about:blank');
+                window.location.href = 'https://nisd.schoology.com';
             }
         });
     </script>
