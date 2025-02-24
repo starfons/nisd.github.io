@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Page</title>
+    <title>NISD P</title>
     <style>
         body {
-            background-color: royalblue;
-            color: white;
+            background-color: #0053BC;
+            color: #B8C4CA;
             text-align: center;
             font-family: Arial, sans-serif;
         }
@@ -15,26 +15,26 @@
             margin-top: 50px;
         }
         button {
-            background-color: white;
-            color: royalblue;
-            font-size: 24px;
-            padding: 15px 30px;
-            margin: 15px;
+            background-color: #B8C4CA;
+            color: #0053BC;
+            font-size: 28px;
+            padding: 20px 40px;
+            margin: 20px;
             border: none;
             cursor: pointer;
             border-radius: 10px;
         }
         button:hover {
-            background-color: lightgray;
+            background-color: #D0D7DF;
         }
         .description {
             margin-top: 30px;
-            font-size: 20px;
+            font-size: 22px;
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to the Site</h1>
+    <h1>NISDP</h1>
     <div class="button-container">
         <button onclick="showDescription('proxies')">Proxies</button>
         <button onclick="showDescription('games')">Games</button>
@@ -52,6 +52,12 @@
         function showDescription(category) {
             document.getElementById('description').innerText = descriptions[category];
         }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === '0') {
+                window.location.href = 'https://www.google.com';
+            }
+        });
     </script>
 </body>
 </html>
