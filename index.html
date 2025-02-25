@@ -33,8 +33,8 @@
             margin-top: 30px;
             font-size: 18px;
         }
-        .link-list {
-            display: flex;
+        .link-list, .games-list {
+            display: none;
             justify-content: space-around;
             text-align: left;
             margin: 20px auto;
@@ -46,14 +46,15 @@
         h1, h2 {
             color: #58a6ff;
         }
-        .proxy-box {
+        .proxy-box, .game-box {
             background: #21262d;
             padding: 15px;
             border-radius: 6px;
             margin-top: 20px;
             width: 30%;
+            text-align: center;
         }
-        .proxy-box a {
+        .proxy-box a, .game-box a {
             color: #58a6ff;
             text-decoration: none;
             display: block;
@@ -62,18 +63,29 @@
         .proxy-box a:hover {
             text-decoration: underline;
         }
+        .game-box img {
+            width: 100%;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+            border-radius: 6px;
+        }
     </style>
 </head>
 <body>
     <h1 id="page-title">NISDP</h1>
     <div class="button-container">
-        <button onclick="showDescription('proxies')">Proxies</button>
-        <button onclick="showDescription('games')">Games</button>
-        <button onclick="showDescription('movies')">Movies</button>
+        <button onclick="showSection('proxies')">Proxies</button>
+        <button onclick="showSection('games')">Games</button>
+        <button onclick="showSection('movies')">Movies</button>
     </div>
     <div id="description" class="description">Press 0 to go to Google and press 1 to cloak the tab as Google Drive</div>
     
-    <div id="proxy-links" class="link-list" style="display: none;">
+    <div id="proxy-links" class="link-list">
         <div class="proxy-box">
             <h2>Shadow Browser</h2>
             <a href="https://help.billigerhost.com/" target="_blank">Link 1</a>
@@ -94,14 +106,35 @@
         </div>
     </div>
 
+    <div id="games-list" class="games-list">
+        <div class="game-box">
+            <h2>Dino Game</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Chrome_Dino_game_offline.png" alt="Dino Game">
+            <iframe src="https://chromedino.com/game/" title="Dino Game"></iframe>
+        </div>
+        <div class="game-box">
+            <h2>Flappy Bird</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Flappy_Bird_icon.png/150px-Flappy_Bird_icon.png" alt="Flappy Bird">
+            <iframe src="https://flappybird.io/" title="Flappy Bird"></iframe>
+        </div>
+        <div class="game-box">
+            <h2>2048</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/2048_logo.svg" alt="2048">
+            <iframe src="https://play2048.co/" title="2048"></iframe>
+        </div>
+    </div>
+
     <script>
-        function showDescription(section) {
+        function showSection(section) {
             document.getElementById("description").innerText = `You selected: ${section}`;
             
+            document.getElementById("proxy-links").style.display = "none";
+            document.getElementById("games-list").style.display = "none";
+
             if (section === "proxies") {
                 document.getElementById("proxy-links").style.display = "flex";
-            } else {
-                document.getElementById("proxy-links").style.display = "none";
+            } else if (section === "games") {
+                document.getElementById("games-list").style.display = "flex";
             }
         }
 
