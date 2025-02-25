@@ -62,6 +62,26 @@
             text-decoration: underline;
         }
     </style>
+    <script>
+        function showDescription(section) {
+            document.getElementById("description").innerText = `You selected: ${section}`;
+            
+            if (section === "proxies") {
+                document.getElementById("proxy-links").style.display = "flex";
+            } else {
+                document.getElementById("proxy-links").style.display = "none";
+            }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "0") {
+                window.location.href = "https://www.google.com";
+            } else if (event.key === "1") {
+                document.title = "Google Drive";
+                window.history.pushState({}, "", "https://drive.google.com");
+            }
+        });
+    </script>
 </head>
 <body>
     <h1>NISDP</h1>
@@ -70,7 +90,7 @@
         <button onclick="showDescription('games')">Games</button>
         <button onclick="showDescription('movies')">Movies</button>
     </div>
-    <div id="description" class="description">Click 0 to go to Google and click 1 to go to Schoology</div>
+    <div id="description" class="description">Click 0 to go to Google and click 1 to cloak the tab as Google Drive</div>
     
     <div id="proxy-links" class="link-list" style="display: none;">
         <div class="proxy-box">
@@ -92,16 +112,5 @@
             <a href="https://eu.adbox-v5.ipv64.net" target="_blank">Link 3</a>
         </div>
     </div>
-    <script>
-        function showDescription(section) {
-            document.getElementById("description").innerText = `You selected: ${section}`;
-            
-            if (section === "proxies") {
-                document.getElementById("proxy-links").style.display = "flex";
-            } else {
-                document.getElementById("proxy-links").style.display = "none";
-            }
-        }
-    </script>
 </body>
 </html>
