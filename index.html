@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NISD P</title>
+    <link id="favicon" rel="icon" type="image/png" href="https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png">
     <style>
         body {
             background-color: #0d1117;
@@ -62,35 +63,15 @@
             text-decoration: underline;
         }
     </style>
-    <script>
-        function showDescription(section) {
-            document.getElementById("description").innerText = `You selected: ${section}`;
-            
-            if (section === "proxies") {
-                document.getElementById("proxy-links").style.display = "flex";
-            } else {
-                document.getElementById("proxy-links").style.display = "none";
-            }
-        }
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "0") {
-                window.location.href = "https://www.google.com";
-            } else if (event.key === "1") {
-                document.title = "Google Drive";
-                window.history.pushState({}, "", "https://drive.google.com");
-            }
-        });
-    </script>
 </head>
 <body>
-    <h1>NISDP</h1>
+    <h1 id="page-title">NISDP</h1>
     <div class="button-container">
         <button onclick="showDescription('proxies')">Proxies</button>
         <button onclick="showDescription('games')">Games</button>
         <button onclick="showDescription('movies')">Movies</button>
     </div>
-    <div id="description" class="description">Click 0 to go to Google and click 1 to cloak the tab as Google Drive</div>
+    <div id="description" class="description">Press 0 to go to Google and press 1 to cloak the tab as Google Drive</div>
     
     <div id="proxy-links" class="link-list" style="display: none;">
         <div class="proxy-box">
@@ -112,5 +93,27 @@
             <a href="https://eu.adbox-v5.ipv64.net" target="_blank">Link 3</a>
         </div>
     </div>
+
+    <script>
+        function showDescription(section) {
+            document.getElementById("description").innerText = `You selected: ${section}`;
+            
+            if (section === "proxies") {
+                document.getElementById("proxy-links").style.display = "flex";
+            } else {
+                document.getElementById("proxy-links").style.display = "none";
+            }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "0") {
+                window.location.href = "https://www.google.com";
+            } else if (event.key === "1") {
+                document.title = "Google Drive";
+                document.getElementById("favicon").href = "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png";
+                document.getElementById("page-title").innerText = "Google Drive";
+            }
+        });
+    </script>
 </body>
 </html>
