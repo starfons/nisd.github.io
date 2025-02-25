@@ -33,7 +33,7 @@
             margin-top: 30px;
             font-size: 18px;
         }
-        .link-list, .games-list {
+        .link-list, .games-list, .movies-list {
             display: none;
             justify-content: space-around;
             margin: 20px auto;
@@ -41,11 +41,12 @@
             background: #161b22;
             padding: 20px;
             border-radius: 6px;
+            flex-wrap: wrap;
         }
         h1, h2 {
             color: #58a6ff;
         }
-        .proxy-box, .game-box {
+        .proxy-box, .game-box, .movie-box {
             background: #21262d;
             padding: 15px;
             border-radius: 6px;
@@ -53,31 +54,16 @@
             width: 30%;
             text-align: center;
         }
-        .proxy-box a {
+        .proxy-box a, .movie-box a {
             color: #58a6ff;
             text-decoration: none;
+            font-size: 24px;
             display: block;
-            margin: 5px 0;
+            margin: 10px 0;
+            font-weight: bold;
         }
-        .proxy-box a:hover {
+        .proxy-box a:hover, .movie-box a:hover {
             text-decoration: underline;
-        }
-        .game-box img {
-            width: 100%;
-            border-radius: 6px;
-            margin-bottom: 10px;
-        }
-        .fullscreen-btn {
-            margin-top: 10px;
-            background-color: #30363d;
-            color: white;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-        .fullscreen-btn:hover {
-            background-color: #444c56;
         }
     </style>
 </head>
@@ -114,42 +100,29 @@
 
     <!-- Games List -->
     <div id="games-list" class="games-list">
-        <div class="game-box">
-            <h2>Bicycle Hero</h2>
-            <img src="https://example.com/bicycle-hero.jpg" alt="Bicycle Hero">
-            <button class="fullscreen-btn" onclick="openGame('https://example.com/bicycle-hero')">Play</button>
-        </div>
-        <div class="game-box">
-            <h2>Soccer Skills Champions League</h2>
-            <img src="https://example.com/soccer-skills.jpg" alt="Soccer Skills Champions League">
-            <button class="fullscreen-btn" onclick="openGame('https://example.com/soccer-skills')">Play</button>
-        </div>
-        <div class="game-box">
-            <h2>Penalty Kick Online</h2>
-            <img src="https://example.com/penalty-kick.jpg" alt="Penalty Kick Online">
-            <button class="fullscreen-btn" onclick="openGame('https://example.com/penalty-kick')">Play</button>
-        </div>
-        <div class="game-box">
-            <h2>Rocket Soccer Derby</h2>
-            <img src="https://example.com/rocket-soccer.jpg" alt="Rocket Soccer Derby">
-            <button class="fullscreen-btn" onclick="openGame('https://example.com/rocket-soccer')">Play</button>
-        </div>
+        <div class="game-box"><h2>A Small World Cup</h2><iframe src="https://example.com/small-world-cup"></iframe></div>
+        <div class="game-box"><h2>Two Minute Football</h2><iframe src="https://example.com/two-minute-football"></iframe></div>
+        <div class="game-box"><h2>Bicycle Hero</h2><iframe src="https://example.com/bicycle-hero"></iframe></div>
+        <div class="game-box"><h2>Soccer Skills Champions League</h2><iframe src="https://example.com/soccer-skills"></iframe></div>
+        <div class="game-box"><h2>Penalty Kick Online</h2><iframe src="https://example.com/penalty-kick"></iframe></div>
+        <div class="game-box"><h2>Rocket Soccer Derby</h2><iframe src="https://example.com/rocket-soccer-derby"></iframe></div>
+    </div>
+
+    <!-- Movies List -->
+    <div id="movies-list" class="movies-list">
+        <div class="movie-box"><h2>Netflix</h2><a href="https://docs.google.com/presentation/d/149GpUX0v2xNpwbUTv0Ra1bXSBJ8VImN3yQXMYA9ZhKA/edit" target="_blank">Watch Netflix</a></div>
+        <div class="movie-box"><h2>Disney+</h2><a href="https://docs.google.com/presentation/d/1cqMoS7rNvOX77938GusdWNi6mYVPOfETCVsAVW9I9ps/edit" target="_blank">Watch Disney+</a></div>
+        <div class="movie-box"><h2>Hulu</h2><a href="https://docs.google.com/presentation/d/1YDZCGRJMcIXA6CDnnxEUcNuZuEx-NdUETeeVFulhYDg/edit" target="_blank">Watch Hulu</a></div>
     </div>
 
     <script>
         function showSection(section) {
             document.getElementById("proxies").style.display = "none";
             document.getElementById("games-list").style.display = "none";
-            
-            if (section === 'proxies') {
-                document.getElementById("proxies").style.display = "flex";
-            } else if (section === 'games') {
-                document.getElementById("games-list").style.display = "flex";
-            }
-        }
-
-        function openGame(gameUrl) {
-            window.open(gameUrl, '_blank');
+            document.getElementById("movies-list").style.display = "none";
+            if (section === 'proxies') document.getElementById("proxies").style.display = "flex";
+            else if (section === 'games') document.getElementById("games-list").style.display = "flex";
+            else if (section === 'movies') document.getElementById("movies-list").style.display = "flex";
         }
     </script>
 </body>
