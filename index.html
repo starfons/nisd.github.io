@@ -79,19 +79,6 @@
         .fullscreen-btn:hover {
             background-color: #444c56;
         }
-        .game-container {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-        iframe {
-            width: 90%;
-            height: 80vh;
-            border: none;
-            border-radius: 6px;
-        }
     </style>
 </head>
 <body>
@@ -103,89 +90,67 @@
     </div>
     <div id="description" class="description">Press 0 to go to Google and press 1 to cloak the tab as Google Drive</div>
     
-    <!-- Proxy Links -->
-    <div id="proxy-links" class="link-list">
+    <!-- Proxy List -->
+    <div id="proxies" class="link-list">
         <div class="proxy-box">
             <h2>Shadow Browser</h2>
-            <a href="https://help.billigerhost.com/" target="_blank">Link 1</a>
-            <a href="https://8032174309472427.j34n.net/" target="_blank">Link 2</a>
-            <a href="https://www.shadowshark.discovered-procy.lan64.de/" target="_blank">Link 3</a>
+            <a href="https://help.billigerhost.com/" target="_blank">Shadow Link 1</a>
+            <a href="https://8032174309472427.j34n.net/" target="_blank">Shadow Link 2</a>
+            <a href="https://www.shadowshark.discovered-procy.lan64.de/" target="_blank">Shadow Link 3</a>
         </div>
         <div class="proxy-box">
             <h2>Space</h2>
-            <a href="https://smoresxo.shop.atomybomb.com/" target="_blank">Link 1</a>
-            <a href="https://lwsd1.spfv.ro/" target="_blank">Link 2</a>
-            <a href="https://lwsd2.spfv.ro/" target="_blank">Link 3</a>
+            <a href="https://smoresxo.shop.atomybomb.com/" target="_blank">Space Link 1</a>
+            <a href="https://lwsd1.spfv.ro/" target="_blank">Space Link 2</a>
+            <a href="https://lwsd2.spfv.ro/" target="_blank">Space Link 3</a>
         </div>
         <div class="proxy-box">
             <h2>Astroid</h2>
-            <a href="https://www.www.www.obitrani.ipv64.net" target="_blank">Link 1</a>
-            <a href="https://ultraapple.ipv64.net" target="_blank">Link 2</a>
-            <a href="https://eu.adbox-v5.ipv64.net" target="_blank">Link 3</a>
+            <a href="https://www.www.www.obitrani.ipv64.net" target="_blank">Astroid Link 1</a>
+            <a href="https://ultraapple.ipv64.net" target="_blank">Astroid Link 2</a>
+            <a href="https://eu.adbox-v5.ipv64.net" target="_blank">Astroid Link 3</a>
         </div>
     </div>
 
     <!-- Games List -->
     <div id="games-list" class="games-list">
         <div class="game-box">
-            <h2>Dino Game</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Chrome_Dino_game_offline.png" alt="Dino Game">
-            <button class="fullscreen-btn" onclick="openGame('dino')">Play Fullscreen</button>
+            <h2>Bicycle Hero</h2>
+            <img src="https://example.com/bicycle-hero.jpg" alt="Bicycle Hero">
+            <button class="fullscreen-btn" onclick="openGame('https://example.com/bicycle-hero')">Play</button>
         </div>
         <div class="game-box">
-            <h2>Flappy Bird</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Flappy_Bird_icon.png/150px-Flappy_Bird_icon.png" alt="Flappy Bird">
-            <button class="fullscreen-btn" onclick="openGame('flappy')">Play Fullscreen</button>
+            <h2>Soccer Skills Champions League</h2>
+            <img src="https://example.com/soccer-skills.jpg" alt="Soccer Skills Champions League">
+            <button class="fullscreen-btn" onclick="openGame('https://example.com/soccer-skills')">Play</button>
         </div>
         <div class="game-box">
-            <h2>GeForce Now</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/GeForce_Logo.png" alt="GeForce Now">
-            <button class="fullscreen-btn" onclick="openGame('geforce')">Open</button>
+            <h2>Penalty Kick Online</h2>
+            <img src="https://example.com/penalty-kick.jpg" alt="Penalty Kick Online">
+            <button class="fullscreen-btn" onclick="openGame('https://example.com/penalty-kick')">Play</button>
         </div>
-    </div>
-
-    <!-- Fullscreen Game Container -->
-    <div id="game-container" class="game-container">
-        <button class="fullscreen-btn" onclick="closeGame()">Close</button>
-        <iframe id="game-frame"></iframe>
+        <div class="game-box">
+            <h2>Rocket Soccer Derby</h2>
+            <img src="https://example.com/rocket-soccer.jpg" alt="Rocket Soccer Derby">
+            <button class="fullscreen-btn" onclick="openGame('https://example.com/rocket-soccer')">Play</button>
+        </div>
     </div>
 
     <script>
         function showSection(section) {
-            document.getElementById("description").innerText = `You selected: ${section}`;
-            document.getElementById("proxy-links").style.display = section === "proxies" ? "flex" : "none";
-            document.getElementById("games-list").style.display = section === "games" ? "flex" : "none";
-        }
-
-        function openGame(game) {
-            let url = "";
-            if (game === "dino") {
-                url = "https://chromedino.com/game/";
-            } else if (game === "flappy") {
-                url = "https://flappybird.io/";
-            } else if (game === "geforce") {
-                url = "https://login.nvgs.nvidia.com/v1/login/identifier?preferred_nvidia=true&context=Initial&theme=Noir&locale=en-US&prompt=select_account&client_id=310670192232366513";
-            }
+            document.getElementById("proxies").style.display = "none";
             document.getElementById("games-list").style.display = "none";
-            document.getElementById("game-container").style.display = "flex";
-            document.getElementById("game-frame").src = url;
-        }
-
-        function closeGame() {
-            document.getElementById("game-container").style.display = "none";
-            document.getElementById("games-list").style.display = "flex";
-            document.getElementById("game-frame").src = "";
-        }
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "0") {
-                window.location.href = "https://www.google.com";
-            } else if (event.key === "1") {
-                document.title = "Google Drive";
-                document.getElementById("favicon").href = "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png";
-                document.getElementById("page-title").innerText = "Google Drive";
+            
+            if (section === 'proxies') {
+                document.getElementById("proxies").style.display = "flex";
+            } else if (section === 'games') {
+                document.getElementById("games-list").style.display = "flex";
             }
-        });
+        }
+
+        function openGame(gameUrl) {
+            window.open(gameUrl, '_blank');
+        }
     </script>
 </body>
 </html>
