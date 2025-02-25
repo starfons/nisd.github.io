@@ -36,7 +36,6 @@
         .link-list, .games-list {
             display: none;
             justify-content: space-around;
-            text-align: left;
             margin: 20px auto;
             width: 80%;
             background: #161b22;
@@ -54,7 +53,7 @@
             width: 30%;
             text-align: center;
         }
-        .proxy-box a, .game-box a {
+        .proxy-box a {
             color: #58a6ff;
             text-decoration: none;
             display: block;
@@ -68,9 +67,28 @@
             border-radius: 6px;
             margin-bottom: 10px;
         }
+        .fullscreen-btn {
+            margin-top: 10px;
+            background-color: #30363d;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .fullscreen-btn:hover {
+            background-color: #444c56;
+        }
+        .game-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
         iframe {
-            width: 100%;
-            height: 300px;
+            width: 90%;
+            height: 80vh;
             border: none;
             border-radius: 6px;
         }
@@ -85,6 +103,7 @@
     </div>
     <div id="description" class="description">Press 0 to go to Google and press 1 to cloak the tab as Google Drive</div>
     
+    <!-- Proxy Links -->
     <div id="proxy-links" class="link-list">
         <div class="proxy-box">
             <h2>Shadow Browser</h2>
@@ -106,36 +125,56 @@
         </div>
     </div>
 
+    <!-- Games List -->
     <div id="games-list" class="games-list">
         <div class="game-box">
             <h2>Dino Game</h2>
             <img src="https://upload.wikimedia.org/wikipedia/commons/7/75/Chrome_Dino_game_offline.png" alt="Dino Game">
-            <iframe src="https://chromedino.com/game/" title="Dino Game"></iframe>
+            <button class="fullscreen-btn" onclick="openGame('dino')">Play Fullscreen</button>
         </div>
         <div class="game-box">
             <h2>Flappy Bird</h2>
             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/06/Flappy_Bird_icon.png/150px-Flappy_Bird_icon.png" alt="Flappy Bird">
-            <iframe src="https://flappybird.io/" title="Flappy Bird"></iframe>
+            <button class="fullscreen-btn" onclick="openGame('flappy')">Play Fullscreen</button>
         </div>
         <div class="game-box">
-            <h2>2048</h2>
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/2048_logo.svg" alt="2048">
-            <iframe src="https://play2048.co/" title="2048"></iframe>
+            <h2>GeForce Now</h2>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/GeForce_Logo.png" alt="GeForce Now">
+            <button class="fullscreen-btn" onclick="openGame('geforce')">Open</button>
         </div>
+    </div>
+
+    <!-- Fullscreen Game Container -->
+    <div id="game-container" class="game-container">
+        <button class="fullscreen-btn" onclick="closeGame()">Close</button>
+        <iframe id="game-frame"></iframe>
     </div>
 
     <script>
         function showSection(section) {
             document.getElementById("description").innerText = `You selected: ${section}`;
-            
-            document.getElementById("proxy-links").style.display = "none";
-            document.getElementById("games-list").style.display = "none";
+            document.getElementById("proxy-links").style.display = section === "proxies" ? "flex" : "none";
+            document.getElementById("games-list").style.display = section === "games" ? "flex" : "none";
+        }
 
-            if (section === "proxies") {
-                document.getElementById("proxy-links").style.display = "flex";
-            } else if (section === "games") {
-                document.getElementById("games-list").style.display = "flex";
+        function openGame(game) {
+            let url = "";
+            if (game === "dino") {
+                url = "https://chromedino.com/game/";
+            } else if (game === "flappy") {
+                url = "https://flappybird.io/";
+            } else if (game === "geforce") {
+                url = "https://login.nvgs.nvidia.com/v1/login/identifier?preferred_nvidia=true&context=Initial&theme=Noir&locale=en-US&prompt=select_account&client_id=310670192232366513";
             }
+            document.getElementById("games-list").style.display = "none";
+            document.getElementById("game-container").style.display = "flex";
+            document.getElementById("game-frame").src = url;
+        }
+
+        function closeGame() {
+            document.getElementById("game-container").style.display = "none";
+            document.getElementById("games-list").style.display = "flex";
+            document.getElementById("game-frame").src = "";
         }
 
         document.addEventListener("keydown", function(event) {
